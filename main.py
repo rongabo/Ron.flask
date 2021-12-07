@@ -1,18 +1,16 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 
 @app.route('/')
-def hello():
-    args = request.args
-    args_msg = '\n'.join([f'Argument {k} With Value of: {v}' for k, v in args.items()]) if args else ''
-    return f"Hello User!\nYou Gave Me The Following Args:\n{args_msg}"
+def my_home():
+    return "welcome to my home page"
 
 
 @app.route('/homepage')
 def homepage():
-    return redirect(url_for('hello'))
+    return redirect(url_for('my_home'))
 
 
 @app.route('/home')
@@ -20,5 +18,5 @@ def home():
     return redirect('/')
 
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     app.run()
